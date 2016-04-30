@@ -86,6 +86,7 @@ class Matcher {
             if (a.getName().startsWith(zapyt)) {
                 result.add(a);
             } else {
+                //Implementacja dopasowywania dużych liter
                 String name = a.getName();
                 if (!zapyt.toUpperCase().equals(zapyt)) continue;
                 String tylkoDuzeZa = "";
@@ -93,6 +94,8 @@ class Matcher {
                     if (Character.isUpperCase(name.charAt(i))) tylkoDuzeZa += name.charAt(i);
                 }
                 if (tylkoDuzeZa.startsWith(zapyt)) result.add(a);
+
+                //Inna implementacja
 //                int at = 0;
 //                for (int i = 0; i < zapyt.length(); i++) {
 //                    char c = zapyt.charAt(i);
@@ -113,7 +116,7 @@ class Matcher {
 }
 
 
-public class A {
+public class DopasowaniaStart {
     public static void main(String[] args) {
         /**
          * Cel: "autocomplete"
@@ -121,11 +124,8 @@ public class A {
          * Sytuacja: różne obiekty mające pole "nazwa"; po wpisaniu kilku liter (query) znajdujemy pasujące
          * - zaczynające się od `query`
          * - kończące się na `query`
-         * - typu qu...E...R..Y..
+         * - typu ...E...R..Y..
          */
-
-
-
 
         Client c = new Client("aaa","123");
         Client cc = new Client("PszoK","123");

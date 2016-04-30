@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Zadanie2 {
     public static void main(String[] args) {
-//        dane są prezenty … ponumerowane od 1..1000; ich ceny wynosza dopowiednio 1..1000;
+//        dane są prezenty … ponumerowane od 1..1000; ich ceny wynoszą dopowiednio 1..1000;
 // dostajemy też listę prezentów "mało atrakcyjnych", typu {2,3,8}; oraz sumę pieniędzy "suma";
 // proszę podać listę prezentów kupowanych od najtańszych "w górę", nie należących do "mało atrakcyjnych",
 // które można kupić tak, by nie przekroczyć kosztu "suma";
