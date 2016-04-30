@@ -79,11 +79,29 @@ class Product implements DoAutocomplete {
 }
 
 class Matcher {
-    public static List<DoAutocomplete> matchIt(List<DoAutocomplete> args, String query) {
+    public static List<DoAutocomplete> matchIt(List<DoAutocomplete> args, String zapyt) {
         //przesortowac liste `args` i wybrac pasujace do stringu `query`
         List<DoAutocomplete> result = new ArrayList<>();
         for(DoAutocomplete a : args) {
-            if (a.getName().startsWith(query)) result.add(a);
+            if (a.getName().startsWith(zapyt)) {
+                result.add(a);
+            } else {
+                String name = a.getName();
+                if (!zapyt.toUpperCase().equals(zapyt)) continue;
+                String tylkoDuzeZa = "";
+                for (int i = 0; i < name.length(); i++) {
+                    if (Character.isUpperCase(name.charAt(i))) tylkoDuzeZa += name.charAt(i);
+                }
+                if (tylkoDuzeZa.startsWith(zapyt)) result.add(a);
+//                int at = 0;
+//                for (int i = 0; i < zapyt.length(); i++) {
+//                    char c = zapyt.charAt(i);
+//                    int foundAt = name.indexOf(c, at);  //szukamy litery `c` od miejsca `at`
+//                    if (foundAt<0) break;
+//                    if (i==zapyt.length()-1) result.add(a);
+//                    at = foundAt + 1;   //nastepnej litery szukamy od nastepnego znaku
+//                }
+            }
         }
         return result;
     }
@@ -110,12 +128,29 @@ public class A {
 
 
         Client c = new Client("aaa","123");
+        Client cc = new Client("PszoK","123");
         Product p = new Product("aab", 100);
         List<DoAutocomplete> doPrzeszukania = new ArrayList<>();
 
         doPrzeszukania.add(c);
+        doPrzeszukania.add(cc);
         doPrzeszukania.add(p);
-        System.out.println(Matcher.matchIt(doPrzeszukania,"aa"));
+        System.out.println(Matcher.matchIt(doPrzeszukania,"PK"));
+
+        //Zadanie: dodać match do głównych dużych liter, tzn:
+        // jeśli damy ASK, to powinien dopasować do
+        //      ArchitekturaSystemówKomputerowych
+        //ale nie do ArchitekturaKomputerowa
+
+//        System.out.println(Character.isUpperCase('A'));
+
+//        String napis = "CCC";
+        //sposob sprawdzenia czy napis jest tylko z duzych liter
+//        System.out.println(napis.toUpperCase().equals(napis));
+
+
+//        String costam = "aaaaaB......B......C.....A";
+//        System.out.println(costam.indexOf('B', 6));
 
     }
 }
