@@ -27,7 +27,7 @@ public class ProstyKalkulator {
         calyPodatek += 0.15 * doOpodatkowania;
         zarobione -= doOpodatkowania;
 
-        //15%
+        //30%
         if (zarobione<=30000) doOpodatkowania = zarobione;
         else doOpodatkowania=30000;
         calyPodatek += 0.3 * doOpodatkowania;
@@ -37,7 +37,6 @@ public class ProstyKalkulator {
 
         System.out.println("Cały podatek: " + calyPodatek);
         System.out.println("Procentowo: " + (100. * calyPodatek/ caleZarobione));
-
 
 
     }
